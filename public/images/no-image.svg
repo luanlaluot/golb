@@ -1,0 +1,5 @@
+<svg width="100%" height="100%" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="225" fill="#f3f4f6"/>
+  <path d="M185,102 h30 m-15,-15 v30" stroke="#9ca3af" stroke-width="2"/>
+  <text x="200" y="160" text-anchor="middle" fill="#6b7280" font-family="system-ui, -apple-system, sans-serif" font-size="14">Image not available</text>
+</svg> 
