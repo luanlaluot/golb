@@ -52,11 +52,7 @@ const BlogDetail = () => {
     },
   ];
 
-  // Get related articles excluding the current post
-  const allArticles = [...popularArticles, ...latestArticles];
-  const relatedArticles = allArticles
-    .filter((article) => article.id !== id)
-    .slice(0, 3);
+  const relatedArticles = popularArticles.slice(1, 4);
 
   return (
     <article className="min-h-screen pb-16">
