@@ -30,24 +30,6 @@ export default function RootLayout({
               <Link href="/" className="text-gray-700 hover:text-green-600">
                 Home
               </Link>
-              <Link
-                href="/posts"
-                className="text-gray-700 hover:text-green-600"
-              >
-                Articles
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-green-600"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-green-600"
-              >
-                Contact
-              </Link>
             </div>
             <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
               Sign In

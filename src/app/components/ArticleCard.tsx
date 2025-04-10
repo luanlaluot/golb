@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogPost } from "../data/mockData";
+import { BlogPost } from "@/types/blog";
+import dayjs from "dayjs";
 
 interface ArticleCardProps {
   post: BlogPost;
@@ -32,7 +33,7 @@ const ArticleCard = ({
 
   return (
     <Link
-      href={`/posts/${post.id}`}
+      href={`/blog/${post.slug}`}
       className={`group cursor-pointer block ${className}`}
     >
       <div
@@ -52,7 +53,9 @@ const ArticleCard = ({
       </div>
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">{post.date}</span>
+          <span className="text-sm text-gray-500">
+            {dayjs(post.updated_at).format("HH:mm - DD/MM/YYYY")}
+          </span>
         </div>
         <h3
           className={`group-hover:text-green-600 transition-colors line-clamp-2 ${titleClassName}`}
@@ -61,7 +64,7 @@ const ArticleCard = ({
         </h3>
         {showDescription && (
           <p className={`line-clamp-2 ${descriptionClassName}`}>
-            {post.description}
+            {post.excerpt}
           </p>
         )}
       </div>

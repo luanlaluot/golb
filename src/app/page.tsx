@@ -1,7 +1,9 @@
 import ArticleCard from "./components/ArticleCard";
-import { popularArticles, latestArticles } from "./data/mockData";
+import { getBlogPosts } from "./data/blog";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getBlogPosts();
+
   return (
     <main className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -13,7 +15,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
             {/* Featured Article - Takes up 3 columns */}
             <div className="lg:col-span-3">
-              {popularArticles.slice(0, 1).map((post) => (
+              {posts.slice(0, 1).map((post) => (
                 <ArticleCard
                   key={post.id}
                   post={post}
@@ -27,10 +29,11 @@ export default function Home() {
             </div>
             {/* Right side articles - Takes up 2 columns */}
             <div className="lg:col-span-2 grid grid-cols-1 gap-6">
-              {popularArticles.slice(1).map((post) => (
+              {posts.slice(1, 4).map((post) => (
                 <ArticleCard
                   key={post.id}
                   post={post}
+                  showDescription={true}
                   className="flex flex-1 flex-col md:flex-row gap-4"
                   imageClassName="aspect-[16/10] sm:shrink-0"
                   titleClassName="text-lg font-semibold"
@@ -39,26 +42,6 @@ export default function Home() {
                 />
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Latest Articles */}
-        <section className="mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
-            Latest Articles
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {latestArticles.map((post) => (
-              <ArticleCard
-                key={post.id}
-                post={post}
-                showDescription={true}
-                titleClassName="text-xl font-semibold"
-                descriptionClassName="text-sm text-gray-600"
-                width={800}
-                height={600}
-              />
-            ))}
           </div>
         </section>
 
