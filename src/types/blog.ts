@@ -9,6 +9,7 @@ export interface BlogPost {
   updated_at: string;
   published: boolean;
   author_id: string;
+  is_featured: boolean;
 }
 
 export interface Author {

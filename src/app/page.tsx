@@ -1,49 +1,15 @@
-import ArticleCard from "./components/ArticleCard";
-import { getBlogPosts } from "./data/blog";
+import HomeFeaturedList from "@/sections/home/home-featured-list";
+import HomeLatestList from "@/sections/home/home-latest-list";
 
-export default async function Home() {
-  const posts = await getBlogPosts();
-
+export default async function Page() {
   return (
     <main className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Popular Articles */}
-        <section className="mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
-            Popular Articles
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
-            {/* Featured Article - Takes up 3 columns */}
-            <div className="lg:col-span-3">
-              {posts.slice(0, 1).map((post) => (
-                <ArticleCard
-                  key={post.id}
-                  post={post}
-                  showDescription={true}
-                  titleClassName="text-2xl sm:text-3xl font-bold"
-                  descriptionClassName="text-base text-gray-600"
-                  width={1200}
-                  height={800}
-                />
-              ))}
-            </div>
-            {/* Right side articles - Takes up 2 columns */}
-            <div className="lg:col-span-2 grid grid-cols-1 gap-6">
-              {posts.slice(1, 4).map((post) => (
-                <ArticleCard
-                  key={post.id}
-                  post={post}
-                  showDescription={true}
-                  className="flex flex-1 flex-col md:flex-row gap-4"
-                  imageClassName="aspect-[16/10] sm:shrink-0"
-                  titleClassName="text-lg font-semibold"
-                  width={400}
-                  height={400}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        <HomeFeaturedList />
+
+        {/* Popular Articles */}
+        <HomeLatestList />
 
         {/* Call to Action */}
         <section className="relative h-[300px] sm:h-[400px] rounded-lg sm:rounded-xl overflow-hidden">

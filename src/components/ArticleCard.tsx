@@ -44,7 +44,7 @@ const ArticleCard = ({
           alt={post.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          className="object-cover group-hover:scale-105 transition-transform duration-300 aspect-square"
           onError={() => {
             setImgSrc("/images/no-image.png");
           }}
@@ -53,7 +53,7 @@ const ArticleCard = ({
       </div>
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-500">
+          <span className="text-xs text-gray-500">
             {dayjs(post.updated_at).format("HH:mm - DD/MM/YYYY")}
           </span>
         </div>
